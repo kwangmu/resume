@@ -37,11 +37,22 @@ jobs:
           NODE_ENV: production
           CI: false
       
-      - name: List build output
-        run: ls -la dist/
-      
-      - name: Check index.html exists
-        run: test -f dist/index.html && echo "index.html exists" || echo "index.html NOT FOUND"
+      - name: Verify build output
+        run: |
+          echo "=== Build output verification ==="
+          ls -la dist/
+          echo ""
+          echo "=== Checking index.html ==="
+          if [ -f dist/index.html ]; then
+            echo "✓ index.html exists"
+            head -20 dist/index.html
+          else
+            echo "✗ index.html NOT FOUND"
+            exit 1
+          fi
+          echo ""
+          echo "=== Checking assets directory ==="
+          ls -la dist/assets/ || echo "No assets directory"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
