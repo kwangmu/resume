@@ -28,51 +28,101 @@ jobs:
           node-version: '20'
           cache: 'npm'
       
+      - name: Check repository structure
+        run: |
+          echo "=== Repository structure ==="
+          ls -la
+          echo ""
+          echo "=== Looking for package.json ==="
+          if [ -f package.json ]; then
+            echo "✓ package.json found in root"
+          elif [ -f copy-of-executive-strategic-portfolio/package.json ]; then
+            echo "✓ package.json found in copy-of-executive-strategic-portfolio/"
+          else
+            echo "✗ package.json NOT FOUND"
+            find . -name "package.json" -type f
+          fi
+      
       - name: Install dependencies
-        working-directory: ./copy-of-executive-strategic-portfolio
-        run: npm ci
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          elif [ -f copy-of-executive-strategic-portfolio/package.json ]; then
+            cd copy-of-executive-strategic-portfolio && npm ci
+          else
+            echo "✗ package.json not found"
+            exit 1
+          fi
       
       - name: Build
-        working-directory: ./copy-of-executive-strategic-portfolio
-        run: npm run build
+        run: |
+          if [ -f package.json ]; then
+            npm run build
+          elif [ -f copy-of-executive-strategic-portfolio/package.json ]; then
+            cd copy-of-executive-strategic-portfolio && npm run build
+          else
+            echo "✗ package.json not found"
+            exit 1
+          fi
         env:
           NODE_ENV: production
           CI: false
       
       - name: Verify build output
-        working-directory: ./copy-of-executive-strategic-portfolio
         run: |
+          if [ -d dist ]; then
+            BUILD_DIR="dist"
+          elif [ -d copy-of-executive-strategic-portfolio/dist ]; then
+            BUILD_DIR="copy-of-executive-strategic-portfolio/dist"
+          else
+            echo "✗ dist directory NOT FOUND"
+            find . -name "dist" -type d
+            exit 1
+          fi
+          
           echo "=== Build output verification ==="
-          ls -la dist/
+          ls -la $BUILD_DIR/
           echo ""
           echo "=== Checking index.html ==="
-          if [ -f dist/index.html ]; then
+          if [ -f $BUILD_DIR/index.html ]; then
             echo "✓ index.html exists"
             echo "First 30 lines of index.html:"
-            head -30 dist/index.html
+            head -30 $BUILD_DIR/index.html
           else
             echo "✗ index.html NOT FOUND"
             exit 1
           fi
           echo ""
           echo "=== Checking assets directory ==="
-          if [ -d dist/assets ]; then
+          if [ -d $BUILD_DIR/assets ]; then
             echo "✓ assets directory exists"
-            ls -la dist/assets/ | head -10
+            ls -la $BUILD_DIR/assets/ | head -10
           else
             echo "⚠ No assets directory found"
           fi
           echo ""
-          echo "=== All files in dist/ ==="
-          find dist -type f
+          echo "=== All files in $BUILD_DIR/ ==="
+          find $BUILD_DIR -type f
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
+      - name: Determine build directory
+        id: build-dir
+        run: |
+          if [ -d dist ]; then
+            echo "dir=dist" >> $GITHUB_OUTPUT
+          elif [ -d copy-of-executive-strategic-portfolio/dist ]; then
+            echo "dir=copy-of-executive-strategic-portfolio/dist" >> $GITHUB_OUTPUT
+          else
+            echo "✗ dist directory NOT FOUND"
+            exit 1
+          fi
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './copy-of-executive-strategic-portfolio/dist'
+          path: ${{ steps.build-dir.outputs.dir }}
 
   deploy:
     environment:
