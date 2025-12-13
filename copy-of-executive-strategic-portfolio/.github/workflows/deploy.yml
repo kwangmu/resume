@@ -37,6 +37,12 @@ jobs:
           NODE_ENV: production
           CI: false
       
+      - name: List build output
+        run: ls -la dist/
+      
+      - name: Check index.html exists
+        run: test -f dist/index.html && echo "index.html exists" || echo "index.html NOT FOUND"
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
