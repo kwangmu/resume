@@ -16,8 +16,8 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
       <div className="space-y-6 md:space-y-12 relative md:before:absolute md:before:inset-0 md:before:left-1/2 md:before:-translate-x-1/2 md:before:h-full md:before:w-0.5 md:before:bg-gradient-to-b md:before:from-amber-500/20 md:before:via-amber-500/50 md:before:to-amber-500/20">
         
         {/* Card 1 */}
-        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
+        <div className="relative flex flex-col md:flex-row md:items-center group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 법인사업실 / 실장 (상무)
@@ -48,8 +48,8 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
         </div>
 
         {/* Card 2 */}
-        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
+        <div className="relative flex flex-col md:flex-row md:items-center md:flex-row-reverse group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:ml-auto bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 2사업부문 / 사업부문장
@@ -76,8 +76,8 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
         </div>
 
         {/* Card 3 */}
-        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
+        <div className="relative flex flex-col md:flex-row md:items-center group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 홈케어사업실 / 사업부문장
@@ -104,8 +104,8 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
         </div>
 
         {/* Card 4 */}
-        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
+        <div className="relative flex flex-col md:flex-row md:items-center md:flex-row-reverse group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:ml-auto bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 W영업조직 & CL영업조직
