@@ -12,9 +12,9 @@ export const ProfileSection: React.FC<SectionProps> = ({ id }) => {
         <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         
-        <div className="relative bg-gradient-to-r from-amber-600/20 via-amber-500/10 to-blue-600/20 h-24 md:h-32 lg:h-56">
+        <div className="relative bg-gradient-to-r from-amber-600/20 via-amber-500/10 to-blue-600/20 h-32 md:h-32 lg:h-56 pb-16 md:pb-0">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLjktMiAyLTJzMiAuOSAyIDItLjkgMi0yIDItMi0uOS0yLTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
-          <div className="absolute -bottom-[31.2px] left-1/2 md:left-8 lg:left-12 -translate-x-1/2 md:translate-x-0 flex flex-col md:flex-row items-center gap-4 md:gap-4">
+          <div className="absolute bottom-0 md:-bottom-[31.2px] left-1/2 md:left-8 lg:left-12 -translate-x-1/2 md:translate-x-0 flex flex-col md:flex-row items-center gap-4 md:gap-4">
             <div className="w-32 h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 bg-slate-800 rounded-full border-4 border-amber-500/30 shadow-2xl flex items-center justify-center overflow-hidden relative group shrink-0">
               {!imageError ? (
                 <img 
@@ -42,7 +42,7 @@ export const ProfileSection: React.FC<SectionProps> = ({ id }) => {
           </div>
         </div>
         
-        <div className="relative pt-20 md:pt-24 px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+        <div className="relative pt-8 md:pt-24 px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-6 md:mb-8 gap-4 md:gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
