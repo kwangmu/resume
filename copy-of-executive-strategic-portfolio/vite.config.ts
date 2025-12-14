@@ -7,11 +7,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
-    // GitHub Pages 배포를 위한 base 경로 설정
-    // 저장소 이름을 변경한 경우 이 값을 변경하세요
-    const repoName = 'resume';
+    // Vercel 배포를 위한 base 경로 설정 (루트 도메인에 배포)
     return {
-      base: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '/',
+      base: '/',
       server: {
         port: 3000,
         host: '0.0.0.0',

@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Vercel
 
 on:
   push:
@@ -8,15 +8,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,113 +20,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          # cache removed to avoid lock file error
       
-      - name: Check repository structure
-        run: |
-          echo "=== Repository structure ==="
-          ls -la
-          echo ""
-          echo "=== Looking for package.json ==="
-          if [ -f package.json ]; then
-            echo "✓ package.json found in root"
-          elif [ -f copy-of-executive-strategic-portfolio/package.json ]; then
-            echo "✓ package.json found in copy-of-executive-strategic-portfolio/"
-          else
-            echo "✗ package.json NOT FOUND"
-            find . -name "package.json" -type f
-          fi
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
       
-      - name: Install dependencies
-        run: |
-          if [ -f package.json ]; then
-            npm install
-          elif [ -f copy-of-executive-strategic-portfolio/package.json ]; then
-            cd copy-of-executive-strategic-portfolio && npm install
-          else
-            echo "✗ package.json not found"
-            exit 1
-          fi
-      
-      - name: Build
-        run: |
-          if [ -f package.json ]; then
-            npm run build
-          elif [ -f copy-of-executive-strategic-portfolio/package.json ]; then
-            cd copy-of-executive-strategic-portfolio && npm run build
-          else
-            echo "✗ package.json not found"
-            exit 1
-          fi
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
         env:
-          NODE_ENV: production
-          CI: false
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       
-      - name: Verify build output
-        run: |
-          if [ -d dist ]; then
-            BUILD_DIR="dist"
-          elif [ -d copy-of-executive-strategic-portfolio/dist ]; then
-            BUILD_DIR="copy-of-executive-strategic-portfolio/dist"
-          else
-            echo "✗ dist directory NOT FOUND"
-            find . -name "dist" -type d
-            exit 1
-          fi
-          
-          echo "=== Build output verification ==="
-          ls -la $BUILD_DIR/
-          echo ""
-          echo "=== Checking index.html ==="
-          if [ -f $BUILD_DIR/index.html ]; then
-            echo "✓ index.html exists"
-            echo "First 30 lines of index.html:"
-            head -30 $BUILD_DIR/index.html
-          else
-            echo "✗ index.html NOT FOUND"
-            exit 1
-          fi
-          echo ""
-          echo "=== Checking assets directory ==="
-          if [ -d $BUILD_DIR/assets ]; then
-            echo "✓ assets directory exists"
-            ls -la $BUILD_DIR/assets/ | head -10
-          else
-            echo "⚠ No assets directory found"
-          fi
-          echo ""
-          echo "=== All files in $BUILD_DIR/ ==="
-          find $BUILD_DIR -type f
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Determine build directory
-        id: build-dir
-        run: |
-          if [ -d dist ]; then
-            echo "dir=dist" >> $GITHUB_OUTPUT
-          elif [ -d copy-of-executive-strategic-portfolio/dist ]; then
-            echo "dir=copy-of-executive-strategic-portfolio/dist" >> $GITHUB_OUTPUT
-          else
-            echo "✗ dist directory NOT FOUND"
-            exit 1
-          fi
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ${{ steps.build-dir.outputs.dir }}
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
