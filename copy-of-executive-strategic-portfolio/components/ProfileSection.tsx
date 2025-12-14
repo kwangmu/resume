@@ -14,8 +14,8 @@ export const ProfileSection: React.FC<SectionProps> = ({ id }) => {
         
         <div className="relative bg-gradient-to-r from-amber-600/20 via-amber-500/10 to-blue-600/20 h-24 md:h-32 lg:h-56">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLjktMiAyLTJzMiAuOSAyIDItLjkgMi0yIDItMi0uOS0yLTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
-          <div className="absolute -bottom-[31.2px] left-4 md:left-8 lg:left-12">
-            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 bg-slate-800 rounded-full border-4 border-amber-500/30 shadow-2xl flex items-center justify-center overflow-hidden relative group">
+          <div className="absolute -bottom-[31.2px] left-1/2 md:left-8 lg:left-12 -translate-x-1/2 md:translate-x-0 flex flex-col md:flex-row items-center gap-4 md:gap-4">
+            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 bg-slate-800 rounded-full border-4 border-amber-500/30 shadow-2xl flex items-center justify-center overflow-hidden relative group shrink-0">
               {!imageError ? (
                 <img 
                   src="/profile.jpg" 
@@ -27,6 +27,17 @@ export const ProfileSection: React.FC<SectionProps> = ({ id }) => {
                 <User size={60} className="md:w-20 md:h-20 lg:w-24 lg:h-24 text-amber-400/50 relative z-10" />
               )}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-full"></div>
+            </div>
+            {/* Name box below profile picture on mobile, next to on desktop */}
+            <div className="bg-slate-900 rounded-xl md:rounded-2xl px-4 md:px-6 py-3 md:py-4 border border-amber-500/20 shadow-lg text-center md:text-left">
+              <h2 className="flex items-center justify-center md:justify-start gap-1 md:gap-2 text-lg md:text-xl lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-500">
+                <span>박</span>
+                <span>준</span>
+                <span>현</span>
+              </h2>
+              <p className="text-sm md:text-base lg:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-400 mt-1">
+                Park Joon-hyun
+              </p>
             </div>
           </div>
         </div>
