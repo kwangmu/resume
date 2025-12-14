@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Crown, Users, ChevronRight, TrendingUp, Target, Building } from 'lucide-react';
+import { Briefcase, Users, ChevronRight, Building } from 'lucide-react';
 import { SectionProps } from '../types';
 
 export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
@@ -13,15 +13,11 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
       </div>
       
       {/* Timeline Container with Gold Line */}
-      <div className="space-y-8 md:space-y-12 relative before:absolute before:inset-0 before:left-1/2 before:-translate-x-1/2 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-amber-500/20 before:via-amber-500/50 before:to-amber-500/20">
+      <div className="space-y-6 md:space-y-12 relative md:before:absolute md:before:inset-0 md:before:left-1/2 md:before:-translate-x-1/2 md:before:h-full md:before:w-0.5 md:before:bg-gradient-to-b md:before:from-amber-500/20 md:before:via-amber-500/50 md:before:to-amber-500/20">
         
         {/* Card 1 */}
-        <div className="relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-full border-4 border-slate-900 bg-gradient-to-br from-amber-400 to-amber-600 text-white shadow-lg shadow-amber-500/50 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute left-1/2 -translate-x-1/2 md:relative md:translate-x-0 md:left-0 z-10">
-            <Crown size={18} className="md:w-6 md:h-6" />
-            <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-20"></div>
-          </div>
-          <div className="w-full md:w-[calc(50%-4rem)] bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500 mt-6 md:mt-0">
+        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 법인사업실 / 실장 (상무)
@@ -52,12 +48,8 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
         </div>
 
         {/* Card 2 */}
-        <div className="relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-full border-4 border-slate-900 bg-gradient-to-br from-amber-500 to-amber-700 text-white shadow-lg shadow-amber-500/50 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute left-1/2 -translate-x-1/2 md:relative md:translate-x-0 md:left-0 z-10">
-            <TrendingUp size={18} className="md:w-6 md:h-6" />
-            <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-10"></div>
-          </div>
-          <div className="w-full md:w-[calc(50%-4rem)] bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500 mt-6 md:mt-0">
+        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 2사업부문 / 사업부문장
@@ -84,12 +76,8 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
         </div>
 
         {/* Card 3 */}
-        <div className="relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-full border-4 border-slate-900 bg-gradient-to-br from-amber-500 to-amber-700 text-white shadow-lg shadow-amber-500/50 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute left-1/2 -translate-x-1/2 md:relative md:translate-x-0 md:left-0 z-10">
-             <Target size={18} className="md:w-6 md:h-6" />
-             <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-10"></div>
-          </div>
-          <div className="w-full md:w-[calc(50%-4rem)] bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500 mt-6 md:mt-0">
+        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 홈케어사업실 / 사업부문장
@@ -116,12 +104,8 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
         </div>
 
         {/* Card 4 */}
-        <div className="relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse group">
-          <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-full border-4 border-slate-900 bg-gradient-to-br from-amber-500 to-amber-700 text-white shadow-lg shadow-amber-500/50 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 absolute left-1/2 -translate-x-1/2 md:relative md:translate-x-0 md:left-0 z-10">
-             <Briefcase size={18} className="md:w-6 md:h-6" />
-             <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-10"></div>
-          </div>
-          <div className="w-full md:w-[calc(50%-4rem)] bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500 mt-6 md:mt-0">
+        <div className="relative flex flex-col md:flex-row md:items-center md:justify-normal md:odd:flex-row-reverse group">
+          <div className="w-full md:w-[calc(50%-2rem)] md:mr-auto md:odd:ml-auto md:odd:mr-0 bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl p-4 md:p-8 rounded-xl md:rounded-2xl border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-xl hover:shadow-2xl hover:shadow-amber-500/20 group-hover:-translate-y-1 duration-500">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3 md:mb-4">
               <h3 className="text-lg md:text-2xl font-bold text-amber-300 flex items-center gap-2">
                 W영업조직 & CL영업조직
