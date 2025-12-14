@@ -111,7 +111,7 @@ export const ExperienceSection: React.FC<SectionProps> = ({ id }) => {
                 W영업조직 & CL영업조직
               </h3>
               <span className="text-xs md:text-sm font-bold text-amber-400 bg-amber-900/40 px-3 md:px-4 py-1 md:py-1.5 rounded-full border border-amber-500/30 mt-2 md:mt-0 w-fit">
-                2011.01 – 2015.04
+                2006.06 – 2015.04
               </span>
             </div>
             <p className="text-amber-100/80 text-xs md:text-sm mb-4 md:mb-6 flex items-center gap-2 border-b border-amber-500/20 pb-3 md:pb-4">
